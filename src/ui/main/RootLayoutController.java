@@ -62,15 +62,15 @@ public class RootLayoutController implements Initializable {
         } else {
             System.out.println("Nincs csatlakoztatva eszköz!");
         }
-        
-        
+
         for (int j = 0; j < devices.size(); j++) {
-            boolean isDevice = tempDevices.equals(devices.get(j));
+            boolean isDevice = devices.get(j).equals(tempDevices.get(j));
+            System.out.println("device: " + devices.get(j));
+            System.out.println("tempDevice: " + tempDevices.get(j));
+
             System.out.println("van egyezés: " + isDevice);
         }
         System.out.println("-----------------------------------------\n");
-
-
 
         for (int i = 0; i < tempDevices.size(); i++) {
             String imsi = tempDevices.get(i).getAdbImsi();
