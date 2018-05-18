@@ -63,8 +63,8 @@ public class RootLayoutController implements Initializable {
                 System.out.println(i + ". adb eszköz: " + devices.get(i).getAdbImsi());
             }
         } else {
-            deviceBox.getChildren().add(new Label("Nincs catlakoztatva eszköz!"));
-            System.out.println("Nincs csatlakoztatva eszköz!");
+            devicesList.getChildren().add(new Label("Nincs eszköz!"));
+            System.out.println("Nincs eszköz!");
         }
 
         for (int j = 0; j < devices.size(); j++) {
@@ -81,11 +81,15 @@ public class RootLayoutController implements Initializable {
 
             cabelNumberTf.setMaxWidth(35);
             cabelNumberTf.setMinWidth(10);
-            deviceOpenBtn.setText(tempDevices.get(i).getAdbImsi());
+            deviceOpenBtn.setText(imsi);
             deviceBox.getChildren().addAll(cabelNumberTf, deviceOpenBtn);
             devicesList.getChildren().add(deviceBox);
-            tempDevices.remove(tempDevices.get(i));
+//            tempDevices.remove(tempDevices.get(i));
 
+
+
+
+            //Device add TabPane 
             deviceOpenBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
