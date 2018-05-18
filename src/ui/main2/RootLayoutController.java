@@ -1,5 +1,6 @@
-package ui.main;
+package ui.main2;
 
+import ui.main.*;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
