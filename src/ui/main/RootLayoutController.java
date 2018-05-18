@@ -29,6 +29,9 @@ public class RootLayoutController implements Initializable {
     private VBox devicesList;
     @FXML
     private TabPane mainTabPane;
+    private HBox deviceBox = new HBox();
+    private TextField cabelNumberTf = new TextField();
+    private Button deviceOpenBtn = new Button();
 
     private List<Device> devices;
     private List<Device> tempDevices;
@@ -60,6 +63,7 @@ public class RootLayoutController implements Initializable {
                 System.out.println(i + ". adb eszköz: " + devices.get(i).getAdbImsi());
             }
         } else {
+            deviceBox.getChildren().add(new Label("Nincs catlakoztatva eszköz!"));
             System.out.println("Nincs csatlakoztatva eszköz!");
         }
 
@@ -74,20 +78,18 @@ public class RootLayoutController implements Initializable {
 
         for (int i = 0; i < tempDevices.size(); i++) {
             String imsi = tempDevices.get(i).getAdbImsi();
-            HBox hBox = new HBox();
-            TextField tf = new TextField();
-            Button btn = new Button();
-            tf.setMaxWidth(35);
-            tf.setMinWidth(10);
-            btn.setText(tempDevices.get(i).getAdbImsi());
-            hBox.getChildren().addAll(tf, btn);
-            devicesList.getChildren().add(hBox);
+
+            cabelNumberTf.setMaxWidth(35);
+            cabelNumberTf.setMinWidth(10);
+            deviceOpenBtn.setText(tempDevices.get(i).getAdbImsi());
+            deviceBox.getChildren().addAll(cabelNumberTf, deviceOpenBtn);
+            devicesList.getChildren().add(deviceBox);
             tempDevices.remove(tempDevices.get(i));
 
-            btn.setOnAction(new EventHandler<ActionEvent>() {
+            deviceOpenBtn.setOnAction(new EventHandler<ActionEvent>() {
                 @Override
                 public void handle(ActionEvent event) {
-                    Tab tab = new Tab(tf.getText() + " - " + imsi);
+                    Tab tab = new Tab(cabelNumberTf.getText() + " - " + imsi);
                     mainTabPane.getTabs().add(tab);
                 }
             });
