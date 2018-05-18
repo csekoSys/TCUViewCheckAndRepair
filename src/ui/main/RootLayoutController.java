@@ -66,14 +66,24 @@ public class RootLayoutController implements Initializable {
             devicesList.getChildren().add(new Label("Nincs eszköz!"));
             System.out.println("Nincs eszköz!");
         }
+        
+        
+        
+        
+        
 
-        for (int j = 0; j < devices.size(); j++) {
-            boolean isDevice = devices.get(j).equals(tempDevices.get(j));
-            System.out.println("device: " + devices.get(j));
-            System.out.println("tempDevice: " + tempDevices.get(j));
+        for (int i = 0; i < devices.size(); i++) {
 
-            System.out.println("van egyezés: " + isDevice);
+            for (int j = 0; j < 10; j++) {
+                boolean isDevice = devices.get(j).equals(tempDevices.get(j));
+                System.out.println("device: " + devices.get(j));
+                System.out.println("tempDevice: " + tempDevices.get(j));
+
+                System.out.println("van egyezés: " + isDevice);
+            }
+
         }
+
         System.out.println("-----------------------------------------\n");
 
         for (int i = 0; i < tempDevices.size(); i++) {
@@ -85,9 +95,6 @@ public class RootLayoutController implements Initializable {
             deviceBox.getChildren().addAll(cabelNumberTf, deviceOpenBtn);
             devicesList.getChildren().add(deviceBox);
 //            tempDevices.remove(tempDevices.get(i));
-
-
-
 
             //Device add TabPane 
             deviceOpenBtn.setOnAction(new EventHandler<ActionEvent>() {
