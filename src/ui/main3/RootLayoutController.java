@@ -24,6 +24,7 @@ public class RootLayoutController implements Initializable {
     private TextField deviceStatusTf;
     @FXML
     private TabPane deviceTabPane;
+    List<Device> devices;
 
     public RootLayoutController() {
     }
@@ -35,8 +36,8 @@ public class RootLayoutController implements Initializable {
 
 
     @FXML
-    private void devicesSearch(ActionEvent event) {
-        List<Device> devices = AdbDevices.getAdbDevices();
+    private List<Device> devicesSearch(ActionEvent event) {
+        devices = AdbDevices.getAdbDevices();
 
         if (devices.size() == 1) {
             deviceStatusTf.setText(devices.get(0).getAdbImsi());
@@ -46,6 +47,7 @@ public class RootLayoutController implements Initializable {
         } else {
             deviceStatusTf.setText("Csatlakoztass eszközt!");
         }
+        return devices;
     }
 
     private void addDevicesList(String imsi) {
@@ -59,8 +61,9 @@ public class RootLayoutController implements Initializable {
 
     @FXML
     private void deviceOpenTab(ActionEvent event) {
+        String imsi = devices.get(0).getAdbImsi();
         Tab t = new Tab();
-        t.setText("valami");
+        t.setText(imsi);
         deviceTabPane.getTabs().add(t);
     }
 
