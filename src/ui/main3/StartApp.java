@@ -1,5 +1,6 @@
-package ui.main2;
+package ui.main3;
 
+import ui.main2.*;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;

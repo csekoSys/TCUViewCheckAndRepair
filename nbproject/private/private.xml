@@ -3,11 +3,8 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/szerviz2/NetBeansProjects/TCUViewCheckAndRepair/src/ui/main/StartApp.java</file>
-            <file>file:/home/szerviz2/NetBeansProjects/TCUViewCheckAndRepair/src/ui/main/RootLayout.fxml</file>
-            <file>file:/home/szerviz2/NetBeansProjects/TCUViewCheckAndRepair/src/ui/main/RootLayoutController.java</file>
-            <file>file:/home/szerviz2/NetBeansProjects/TCUViewCheckAndRepair/src/tools/AdbDevices.java</file>
-            <file>file:/home/szerviz2/NetBeansProjects/TCUViewCheckAndRepair/src/model/Device.java</file>
+            <file>file:/home/cseko/NetBeansProjects/TCUViewCheckAndRepair/src/ui/main2/StartApp.java</file>
+            <file>file:/home/cseko/NetBeansProjects/TCUViewCheckAndRepair/src/ui/main2/RootLayoutController.java</file>
         </group>
     </open-files>
 </project-private>
