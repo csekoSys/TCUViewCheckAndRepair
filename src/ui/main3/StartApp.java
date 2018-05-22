@@ -22,7 +22,7 @@ public class StartApp extends Application {
             stage.setTitle("TCU ellenőrző és javító");
             stage.show();
         } catch (IOException ex) {
-            Logger.getLogger(StartApp.class.getName()).log(Level.SEVERE, null, ex);
+            System.out.println("ui.main3.StartApp.start()");
         }
 
     }
