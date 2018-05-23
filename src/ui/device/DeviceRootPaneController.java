@@ -23,6 +23,7 @@ public class DeviceRootPaneController implements Initializable {
     private Label testImsiLb;
 
     private List<Device> devices;
+    private Device device;
 
     public DeviceRootPaneController() {
         this.devices = RootLayoutController.connectedDevices();
@@ -30,7 +31,10 @@ public class DeviceRootPaneController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        testImsiLb.setText("IMSI: " + devices.get(0).getAdbImsi());
+        device = new Device(devices.get(0).getAdbImsi());
+//        testImsiLb.setText("ADB IMSI: " + devices.get(0).getAdbImsi());
+       testImsiLb.setText("REPO IMSI: " + device.getRepoImsi());
+
     }
 
     public void openLogcatTab() {
