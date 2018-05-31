@@ -34,8 +34,8 @@ public class Device {
 
         Process process;
         try {
-            boolean isRepo = isFileExists(REPOSITORY_PATH, "repository.xml");
-            if (isRepo) {
+            boolean isFile = isFileExists(REPOSITORY_PATH, "repository.xml");
+            if (isFile) {
                 process = Runtime.getRuntime().exec(getAdbCommand("cat " + REPOSITORY_PATH + "repository.xml |grep -i Imsi"));
                 BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
@@ -62,15 +62,20 @@ public class Device {
 
         Process process;
         try {
-            boolean isRepo = isFileExists(REPOSITORY_PATH, "repository.xml");
-            if (isRepo) {
+            boolean isFile = isFileExists(REPOSITORY_PATH, "repository.xml");
+            if (isFile) {
                 process = Runtime.getRuntime().exec(getAdbCommand("cat " + REPOSITORY_PATH + "repository.xml |grep -i TCUStatus"));
-                
-                BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+                System.out.println("process: " + process);
 
-                repoTcuStatus = br.readLine();
-                repoTcuStatus = repoTcuStatus.replace("<string name=\"TCUStatus\">", "");
-                repoTcuStatus = repoTcuStatus.replace("</string>", "");
+                if (process != null) {
+                    BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
+
+                    repoTcuStatus = br.readLine();
+                    repoTcuStatus = repoTcuStatus.replace("<string name=\"TCUStatus\">", "");
+                    repoTcuStatus = repoTcuStatus.replace("</string>", "");
+                } else {
+                    repoTcuStatus = "Nincs adat";
+                }
 
             } else {
                 System.out.println("REPOSYTORY NEM LÉTEZIK!!! ---model.Device.isRepo()");
@@ -93,8 +98,8 @@ public class Device {
 
         Process process;
         try {
-            boolean isRepo = isFileExists(REPOSITORY_PATH, "repository.xml");
-            if (isRepo) {
+            boolean isFile = isFileExists(REPOSITORY_PATH, "repository.xml");
+            if (isFile) {
                 process = Runtime.getRuntime().exec(getAdbCommand("cat " + REPOSITORY_PATH + "repository.xml |grep -F <string name=\"Ap\">"));
                 BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
@@ -122,8 +127,8 @@ public class Device {
 
         Process process;
         try {
-            boolean isRepo = isFileExists(REPOSITORY_PATH, "repository.xml");
-            if (isRepo) {
+            boolean isFile = isFileExists(REPOSITORY_PATH, "repository.xml");
+            if (isFile) {
                 process = Runtime.getRuntime().exec(getAdbCommand("cat " + REPOSITORY_PATH + "repository.xml |grep -i Registered"));
                 BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
@@ -157,8 +162,8 @@ public class Device {
 
         Process process;
         try {
-            boolean isRepo = isFileExists(REPOSITORY_PATH, "repository.xml");
-            if (isRepo) {
+            boolean isFile = isFileExists(REPOSITORY_PATH, "repository.xml");
+            if (isFile) {
                 process = Runtime.getRuntime().exec(getAdbCommand("cat " + REPOSITORY_PATH + "repository.xml |grep -i Opened"));
                 BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
@@ -191,8 +196,8 @@ public class Device {
 
         Process process;
         try {
-            boolean isRepo = isFileExists(CASHREGISTER_PATH, "com.tekinvest.novatek.cashregister_preferences.xml");
-            if (isRepo) {
+            boolean isFile = isFileExists(CASHREGISTER_PATH, "com.tekinvest.novatek.cashregister_preferences.xml");
+            if (isFile) {
                 process = Runtime.getRuntime().exec(getAdbCommand("cat " + CASHREGISTER_PATH + "com.tekinvest.novatek.cashregister_preferences.xml |grep -i AP_STRING"));
                 BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
@@ -220,8 +225,8 @@ public class Device {
 
         Process process;
         try {
-            boolean isRepo = isFileExists(CASHREGISTER_PATH, "com.tekinvest.novatek.cashregister_preferences.xml");
-            if (isRepo) {
+            boolean isFile = isFileExists(CASHREGISTER_PATH, "com.tekinvest.novatek.cashregister_preferences.xml");
+            if (isFile) {
                 process = Runtime.getRuntime().exec(getAdbCommand("cat " + CASHREGISTER_PATH + "com.tekinvest.novatek.cashregister_preferences.xml |grep -i SOFTWARE_VERSION_STRING"));
                 BufferedReader br = new BufferedReader(new InputStreamReader(process.getInputStream()));
 
