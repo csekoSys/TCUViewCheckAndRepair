@@ -2,19 +2,15 @@
 
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.HBox?>
-
 
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="850.0" prefWidth="1540.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ui.device.DeviceRootPaneController">
    <center>
       <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="ALL_TABS" BorderPane.alignment="CENTER" />
    </center>
-   <right>
-      <Label fx:id="testImsiLb" text="right" BorderPane.alignment="CENTER" />
-   </right>
    <top>
       <HBox prefHeight="47.0" prefWidth="1540.0" BorderPane.alignment="CENTER">
          <children>
@@ -36,4 +32,7 @@
          </children>
       </HBox>
    </top>
+   <right>
+      <TextArea fx:id="rightBoxArea" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER" />
+   </right>
 </BorderPane>
